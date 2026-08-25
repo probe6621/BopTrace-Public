@@ -14,7 +14,10 @@ def test_index_opens_on_demo_first():
     html = index().body.decode("utf-8")
     assert "Live Community Demo" in html
     assert "Landing + Pricing" in html
+    assert "Free Demo on Public Git" in html
     assert "Buy Professional" in html
     assert "Buy Enterprise" in html
+    assert "Open Public Git" in html
     assert "https://epsilonframework.org" in html
+    assert "https://github.com/probe6621/BopTrace-Public" in html
     assert "Stop AI Hallucinations &amp; Probability Collapse. Instantly." in html

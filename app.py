@@ -185,6 +185,7 @@ INDEX_HTML = """
         <div class="cta-row">
           <a class="btn btn-primary" href="https://epsilonframework.org" target="_blank" rel="noopener noreferrer">Open Full Landing Page</a>
           <a class="btn btn-ghost" href="#demo">View Live Demo</a>
+          <a class="btn btn-ghost" href="https://github.com/probe6621/BopTrace-Public" target="_blank" rel="noopener noreferrer">Free Demo on Public Git</a>
         </div>
         <div class="quote">“BopTrace caught gradient collapse in staging that standard logging completely missed.”</div>
       </div>
@@ -217,9 +218,10 @@ INDEX_HTML = """
     <section id="demo" class="demo-wrap">
       <div class="eyebrow">Live Community Demo</div>
       <h2 class="section-title">Run the BopTrace diagnostics stream first.</h2>
-      <p class="section-copy">Inspect alignment gradients, collapse risk, and a compliance-ready audit report in the community-capped Space. The full landing page with pricing is above.</p>
+      <p class="section-copy">Inspect alignment gradients, collapse risk, and a compliance-ready audit report in the community-capped free demo. The full landing page with pricing is above, and the public GitHub repo is linked in the hero.</p>
       <div class="cta-row" style="margin-top: 0;">
         <a class="btn btn-ghost" href="#landing">Back to Landing + Pricing</a>
+        <a class="btn btn-ghost" href="https://github.com/probe6621/BopTrace-Public" target="_blank" rel="noopener noreferrer">Open Public Git</a>
         <a class="btn btn-ghost" href="https://epsilonframework.org" target="_blank" rel="noopener noreferrer">Core Framework</a>
       </div>
       <div class="grid">
