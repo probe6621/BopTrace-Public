@@ -13,6 +13,6 @@ def test_run_simulation_returns_summary_and_report():
 def test_index_opens_on_demo_first():
     html = index().body.decode("utf-8")
     assert "Live Community Demo" in html
-    assert "#landing" in html
+    assert "Open Landing Page + Pricing" in html
     assert "https://epsilonframework.org" in html
-    assert html.index("Live Community Demo") < html.index("Stop AI Hallucinations &amp; Probability Collapse. Instantly.")
+    assert "Stop AI Hallucinations &amp; Probability Collapse. Instantly." not in html
