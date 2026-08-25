@@ -17,6 +17,7 @@ def test_index_opens_on_demo_first():
     assert "Free Demo Dowload" in html
     assert "Buy Professional" in html
     assert "Buy Enterprise" in html
+    assert html.count("$499.95") >= 2
     assert "Open Public Git" in html
     assert "https://epsilonframework.org" in html
     assert "https://github.com/probe6621/BopTrace-Public" in html
