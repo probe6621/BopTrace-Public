@@ -185,6 +185,23 @@ INDEX_HTML = """
           Get real-time visibility into internal structural friction and alignment drift across your production LLM streams.
           Transform unpredictable AI into reliable, auditable infrastructure.
         </p>
+        <div style="margin: 24px auto; max-width: 315px; text-align: center;">
+          <iframe
+            width="315"
+            height="560"
+            src="https://www.youtube.com/embed/BqWAumZn2NA"
+            title="BopTrace Demo"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            style="border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.3);">
+          </iframe>
+          <br>
+          <a href="https://youtube.com/shorts/BqWAumZn2NA" target="_blank" rel="noopener noreferrer"
+             style="display: inline-block; margin-top: 10px; font-size: 14px; color: #38bdf8; text-decoration: none; font-weight: 500;">
+            ▶ Watch on YouTube
+          </a>
+        </div>
         <div class="cta-row">
           <a class="btn btn-primary" href="https://epsilonframework.org" target="_blank" rel="noopener noreferrer">Open Full Landing Page</a>
           <a class="btn btn-ghost" href="#demo">View Live Demo</a>
