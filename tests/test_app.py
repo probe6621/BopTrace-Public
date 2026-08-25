@@ -15,6 +15,6 @@ def test_index_opens_on_demo_first():
     assert "Live Community Demo" in html
     assert "Landing + Pricing" in html
     assert "Buy Professional" in html
-    assert "Enterprise Checkout" in html
+    assert "Buy Enterprise" in html
     assert "https://epsilonframework.org" in html
     assert "Stop AI Hallucinations &amp; Probability Collapse. Instantly." in html
