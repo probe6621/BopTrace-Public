@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import tempfile
+import threading
 from pathlib import Path
 
 import numpy as np
@@ -11,6 +12,8 @@ from boptrace import BopTraceDiagnostics, ModelDiagnosticsHook, TelemetryAnalyze
 
 
 app = FastAPI(title="BopTrace AI Diagnostics")
+_page_visit_lock = threading.Lock()
+_page_visit_count = 0
 
 INDEX_HTML = """
 <!doctype html>
@@ -191,6 +194,7 @@ INDEX_HTML = """
       </div>
       <div class="hero-side">
         <div class="stats">
+          <div class="stat"><span>Page visits</span><strong>__PAGE_VISITS__</strong></div>
           <div class="stat"><span>LLM hallucinations</span><strong>Detected early</strong></div>
           <div class="stat"><span>Probability collapse</span><strong>Monitored live</strong></div>
           <div class="stat"><span>Audit trails</span><strong>Markdown-ready</strong></div>
@@ -310,7 +314,11 @@ def run_simulation(steps: int, volatility: float):
 
 @app.get("/", response_class=HTMLResponse)
 def index() -> HTMLResponse:
-    return HTMLResponse(INDEX_HTML)
+    global _page_visit_count
+    with _page_visit_lock:
+        _page_visit_count += 1
+        html = INDEX_HTML.replace("__PAGE_VISITS__", f"{_page_visit_count:,}")
+    return HTMLResponse(html)
 
 
 @app.post("/simulate")
