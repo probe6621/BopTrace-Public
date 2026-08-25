@@ -70,7 +70,8 @@ INDEX_HTML = """
       border: 1px solid var(--border); background: rgba(17, 28, 51, 0.88);
       backdrop-filter: blur(10px); border-radius: 24px; box-shadow: 0 20px 60px rgba(0,0,0,.22);
     }
-    .hero { display: grid; grid-template-columns: 1.25fr 0.9fr; gap: 24px; padding: 34px; margin-top: 24px; }
+    .hero { display: grid; grid-template-columns: 1.3fr 0.9fr; gap: 32px; padding: 38px 34px; margin-top: 24px; align-items: center; }
+    .hero-copy { max-width: 700px; padding-right: 12px; }
     .eyebrow {
       display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 999px;
       background: rgba(0,212,255,0.12); color: #c7f9ff; font-size: .82rem; letter-spacing: .06em;
@@ -93,9 +94,12 @@ INDEX_HTML = """
       background: rgba(15, 23, 42, 0.68); border-radius: 14px; color: #e0f2fe; font-style: italic;
     }
     .hero-side {
-      padding: 24px; background:
+      display: flex; flex-direction: column; gap: 18px; padding: 24px; background:
         linear-gradient(180deg, rgba(0,212,255,0.08), rgba(63,81,181,0.08)),
         rgba(15,23,42,0.75);
+    }
+    .hero-media {
+      margin: 0 auto; width: 100%; max-width: 315px; text-align: center;
     }
     .stats { display: grid; gap: 12px; }
     .stat {
@@ -178,30 +182,13 @@ INDEX_HTML = """
     </nav>
 
     <section class="hero" id="landing">
-      <div>
+      <div class="hero-copy">
         <div class="eyebrow">Real-time AI model drift detection</div>
         <h1>Stop AI Hallucinations &amp; Probability Collapse. Instantly.</h1>
         <p class="lead">
           Get real-time visibility into internal structural friction and alignment drift across your production LLM streams.
           Transform unpredictable AI into reliable, auditable infrastructure.
         </p>
-        <div style="margin: 24px auto; max-width: 315px; text-align: center;">
-          <iframe
-            width="315"
-            height="560"
-            src="https://www.youtube.com/embed/BqWAumZn2NA"
-            title="BopTrace Demo"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-            style="border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.3);">
-          </iframe>
-          <br>
-          <a href="https://youtube.com/shorts/BqWAumZn2NA" target="_blank" rel="noopener noreferrer"
-             style="display: inline-block; margin-top: 10px; font-size: 14px; color: #38bdf8; text-decoration: none; font-weight: 500;">
-            ▶ Watch on YouTube
-          </a>
-        </div>
         <div class="cta-row">
           <a class="btn btn-primary" href="https://epsilonframework.org" target="_blank" rel="noopener noreferrer">Open Full Landing Page</a>
           <a class="btn btn-ghost" href="#demo">View Live Demo</a>
@@ -210,6 +197,22 @@ INDEX_HTML = """
         <div class="quote">“BopTrace caught gradient collapse in staging that standard logging completely missed.”</div>
       </div>
       <div class="hero-side">
+        <div class="hero-media">
+          <iframe
+            width="315"
+            height="560"
+            src="https://www.youtube.com/embed/BqWAumZn2NA"
+            title="BopTrace Demo"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            style="border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.3); width: 100%; display: block;">
+          </iframe>
+          <a href="https://youtube.com/shorts/BqWAumZn2NA" target="_blank" rel="noopener noreferrer"
+             style="display: inline-block; margin-top: 10px; font-size: 14px; color: #38bdf8; text-decoration: none; font-weight: 500;">
+            ▶ Watch on YouTube
+          </a>
+        </div>
         <div class="stats">
           <div class="stat" style="display: none;"><span>Page visits</span><strong>__PAGE_VISITS__</strong></div>
           <div class="stat"><span>LLM hallucinations</span><strong>Detected early</strong></div>
