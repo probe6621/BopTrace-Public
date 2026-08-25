@@ -1,15 +1,16 @@
-# BopTrace Community Demo on Hugging Face
+---
+title: BopTrace AI Diagnostics
+emoji: ⚡
+colorFrom: blue
+colorTo: indigo
+sdk: gradio
+sdk_version: 4.40.0
+app_file: app.py
+pinned: false
+license: mit
+---
 
-This Space runs the capped public demo of BopTrace.
+# BopTrace AI Diagnostics
 
-## Limits
+Real-time AI diagnostics tracking token alignment gradients and preventing model probability collapse.
 
-- 1,000 generation steps per session
-- JSONL/stdout telemetry only
-- no native C++ backend
-
-## Try it locally
-
-```bash
-python app.py
-```
