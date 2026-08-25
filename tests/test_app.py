@@ -14,7 +14,7 @@ def test_index_opens_on_demo_first():
     html = index().body.decode("utf-8")
     assert "Live Community Demo" in html
     assert "Landing + Pricing" in html
-    assert "Free Demo on Public Git" in html
+    assert "Free Demo Dowload" in html
     assert "Buy Professional" in html
     assert "Buy Enterprise" in html
     assert "Open Public Git" in html

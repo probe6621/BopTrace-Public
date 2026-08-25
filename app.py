@@ -185,7 +185,7 @@ INDEX_HTML = """
         <div class="cta-row">
           <a class="btn btn-primary" href="https://epsilonframework.org" target="_blank" rel="noopener noreferrer">Open Full Landing Page</a>
           <a class="btn btn-ghost" href="#demo">View Live Demo</a>
-          <a class="btn btn-ghost" href="https://github.com/probe6621/BopTrace-Public" target="_blank" rel="noopener noreferrer">Free Demo on Public Git</a>
+          <a class="btn btn-ghost" href="https://github.com/probe6621/BopTrace-Public" target="_blank" rel="noopener noreferrer">Free Demo Dowload</a>
         </div>
         <div class="quote">“BopTrace caught gradient collapse in staging that standard logging completely missed.”</div>
       </div>
