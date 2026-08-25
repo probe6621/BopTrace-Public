@@ -211,7 +211,7 @@ INDEX_HTML = """
       </div>
       <div class="hero-side">
         <div class="stats">
-          <div class="stat"><span>Page visits</span><strong>__PAGE_VISITS__</strong></div>
+          <div class="stat" style="display: none;"><span>Page visits</span><strong>__PAGE_VISITS__</strong></div>
           <div class="stat"><span>LLM hallucinations</span><strong>Detected early</strong></div>
           <div class="stat"><span>Probability collapse</span><strong>Monitored live</strong></div>
           <div class="stat"><span>Audit trails</span><strong>Markdown-ready</strong></div>
