@@ -24,8 +24,8 @@ def test_index_opens_on_demo_first():
     assert "Free Demo Dowload" in second
     assert "Buy Professional" in second
     assert "Buy Enterprise" in second
-    assert second.count("$99.95") >= 1
-    assert second.count("$499.95") >= 1
+    assert second.count("$99/mo") >= 1
+    assert second.count("$499/mo") >= 1
     assert "Open Public Git" in second
     assert "https://github.com/probe6621/BopTrace-Public" in second
     assert "Stop AI Hallucinations &amp; Probability Collapse. Instantly." in second
