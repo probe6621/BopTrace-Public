@@ -1,0 +1,8 @@
+__pycache__/
+.pytest_cache/
+.venv/
+*.pyc
+boptrace.egg-info/
+boptrace/_friction_core*.so
+build/
+dist/

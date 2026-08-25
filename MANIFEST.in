@@ -1,0 +1,6 @@
+include README.md
+include LICENSE
+include Makefile
+recursive-include examples *.py
+recursive-include boptrace *.py
+recursive-include tests *.py
