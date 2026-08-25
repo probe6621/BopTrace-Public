@@ -12,6 +12,330 @@ from boptrace import BopTraceDiagnostics, ModelDiagnosticsHook, TelemetryAnalyze
 
 app = FastAPI(title="BopTrace AI Diagnostics")
 
+INDEX_HTML = """
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stop AI Hallucinations & Probability Collapse | BopTrace AI Diagnostics</title>
+  <meta name="description" content="Stop AI hallucinations, prevent probability mass collapse, and ensure model alignment with BopTrace, the enterprise diagnostics SDK for production LLMs. Get real-time telemetry and compliance-ready audit logs. Try the live demo." />
+  <meta name="keywords" content="stop llm hallucinations production, ai model drift detection real-time, prevent probability collapse in llms, compliance audit trail for ai models, debug production ai pipelines, llm hallucination detection, real-time ai diagnostics, model drift monitoring, ai compliance reports, production llm telemetry" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0a192f" />
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0a192f;
+      --panel: #111c33;
+      --panel-2: #0f172a;
+      --border: rgba(255,255,255,0.08);
+      --text: #f5f5f5;
+      --muted: #c7d2fe;
+      --accent: #00d4ff;
+      --accent-2: #3f51b5;
+      --success: #4ade80;
+      --warn: #fbbf24;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top left, rgba(63,81,181,0.18), transparent 26%),
+        radial-gradient(circle at top right, rgba(0,212,255,0.12), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+    a { color: inherit; }
+    .wrap { width: min(1180px, calc(100% - 32px)); margin: 0 auto; padding: 32px 0 72px; }
+    .nav {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      padding: 16px 18px; border: 1px solid var(--border); border-radius: 18px;
+      background: rgba(15, 23, 42, 0.72); backdrop-filter: blur(12px);
+      position: sticky; top: 16px; z-index: 10;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: -0.03em; }
+    .badge {
+      width: 40px; height: 40px; border-radius: 12px; display: inline-grid; place-items: center;
+      background: linear-gradient(135deg, var(--accent-2), var(--accent));
+      color: white; font-size: 1.1rem;
+    }
+    .nav-links { display: flex; gap: 14px; flex-wrap: wrap; color: #dbeafe; font-size: 0.95rem; }
+    .hero, .card, .pricing-card, .split {
+      border: 1px solid var(--border); background: rgba(17, 28, 51, 0.88);
+      backdrop-filter: blur(10px); border-radius: 24px; box-shadow: 0 20px 60px rgba(0,0,0,.22);
+    }
+    .hero { display: grid; grid-template-columns: 1.25fr 0.9fr; gap: 24px; padding: 34px; margin-top: 24px; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 999px;
+      background: rgba(0,212,255,0.12); color: #c7f9ff; font-size: .82rem; letter-spacing: .06em;
+      text-transform: uppercase; font-weight: 700;
+    }
+    h1 {
+      margin: 16px 0 12px; font-size: clamp(2.6rem, 5vw, 4.6rem); line-height: .96; letter-spacing: -0.05em;
+    }
+    .lead { color: #dbeafe; font-size: 1.08rem; max-width: 62ch; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 14px 18px; border-radius: 14px; border: 1px solid transparent;
+      text-decoration: none; font-weight: 800;
+    }
+    .btn-primary { background: linear-gradient(135deg, var(--accent-2), var(--accent)); color: white; }
+    .btn-ghost { background: transparent; border-color: rgba(255,255,255,0.18); color: #e2e8f0; }
+    .quote {
+      margin-top: 18px; padding: 14px 16px; border-left: 3px solid var(--accent);
+      background: rgba(15, 23, 42, 0.68); border-radius: 14px; color: #e0f2fe; font-style: italic;
+    }
+    .hero-side {
+      padding: 24px; background:
+        linear-gradient(180deg, rgba(0,212,255,0.08), rgba(63,81,181,0.08)),
+        rgba(15,23,42,0.75);
+    }
+    .stats { display: grid; gap: 12px; }
+    .stat {
+      padding: 14px 16px; border-radius: 16px; background: rgba(255,255,255,.04); border: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    }
+    .stat strong { color: white; }
+    section { margin-top: 24px; }
+    .section-title { margin: 0 0 12px; font-size: clamp(1.5rem, 2.5vw, 2.3rem); letter-spacing: -0.03em; }
+    .section-copy { margin: 0 0 18px; color: #cbd5e1; max-width: 78ch; }
+    .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    .card { padding: 22px; }
+    .card h3 { margin: 0 0 8px; }
+    .card p { margin: 0; color: #d1d5db; }
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; padding: 22px; }
+    .wave {
+      height: 260px; border-radius: 18px; border: 1px solid var(--border);
+      background:
+        linear-gradient(135deg, rgba(0,212,255,.12), rgba(63,81,181,.10)),
+        radial-gradient(circle at center, rgba(0,212,255,.15), transparent 38%);
+      position: relative; overflow: hidden;
+    }
+    .wave::before, .wave::after {
+      content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(
+        90deg, transparent 0 16px, rgba(255,255,255,0.04) 16px 17px
+      );
+      mask: linear-gradient(180deg, transparent, black 25%, black 75%, transparent);
+    }
+    .wave::after { background: linear-gradient(90deg, transparent, rgba(0,212,255,0.45), transparent); animation: glide 4s linear infinite; }
+    @keyframes glide { from { transform: translateX(-50%); } to { transform: translateX(50%); } }
+    .logos {
+      display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px;
+    }
+    .logo {
+      height: 68px; border-radius: 16px; display: grid; place-items: center; color: #cbd5e1;
+      border: 1px dashed rgba(255,255,255,.14); background: rgba(255,255,255,0.03);
+      font-weight: 700;
+    }
+    .pricing {
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; padding: 22px;
+    }
+    .pricing-card { padding: 22px; }
+    .price { font-size: 2rem; font-weight: 900; margin: 8px 0 10px; }
+    .list { padding-left: 20px; color: #dbeafe; }
+    .footer-cta {
+      text-align: center; padding: 24px; border-radius: 24px; margin-top: 24px;
+      background: linear-gradient(135deg, rgba(63,81,181,0.16), rgba(0,212,255,0.12));
+      border: 1px solid var(--border);
+    }
+    .demo-wrap {
+      margin-top: 24px; padding: 22px; border-radius: 24px; border: 1px solid var(--border);
+      background: rgba(17, 28, 51, 0.88);
+    }
+    .grid { display:grid; grid-template-columns: 1fr 1fr; gap:20px; }
+    .panel { background: #111827; border:1px solid #263244; border-radius:16px; padding:20px; }
+    input { width:100%; }
+    button { padding:10px 14px; border:0; border-radius:10px; background:#4f46e5; color:white; font-weight:700; cursor:pointer; }
+    pre { white-space:pre-wrap; margin: 0; }
+    @media (max-width: 960px) {
+      .hero, .split, .pricing, .grid, .cards, .logos { grid-template-columns: 1fr; }
+      .nav { position: static; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="nav">
+      <div class="brand">
+        <div class="badge">⚡</div>
+        <div>
+          <div>BopTrace AI Diagnostics</div>
+          <div style="font-size:.84rem;color:#94a3b8;">Production LLM diagnostics</div>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="#problems">Problems</a>
+        <a href="#product">Product</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#demo">Demo</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Real-time AI model drift detection</div>
+        <h1>Stop AI Hallucinations &amp; Probability Collapse. Instantly.</h1>
+        <p class="lead">
+          Get real-time visibility into internal structural friction and alignment drift across your production LLM streams.
+          Transform unpredictable AI into reliable, auditable infrastructure.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="mailto:contact@epsilonframework.org?subject=BopTrace%20Professional%20Trial">Secure Your AI Pipeline</a>
+          <a class="btn btn-ghost" href="#demo">View Live Demo</a>
+        </div>
+        <div class="quote">“BopTrace caught gradient collapse in staging that standard logging completely missed.”</div>
+      </div>
+      <div class="hero-side">
+        <div class="stats">
+          <div class="stat"><span>LLM hallucinations</span><strong>Detected early</strong></div>
+          <div class="stat"><span>Probability collapse</span><strong>Monitored live</strong></div>
+          <div class="stat"><span>Audit trails</span><strong>Markdown-ready</strong></div>
+          <div class="stat"><span>Telemetry sinks</span><strong>JSONL / stdout</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="problems">
+      <h2 class="section-title">Production AI Systems Fail Silently.</h2>
+      <p class="section-copy">The keywords that matter are the pain points teams search for when their models start drifting, looping, or failing compliance checks.</p>
+      <div class="cards">
+        <div class="card">
+          <h3>Catastrophic Hallucination</h3>
+          <p><strong>Prevent User-Facing Drift.</strong> Stop unpredictable model outputs before they damage your brand reputation.</p>
+        </div>
+        <div class="card">
+          <h3>Probability Collapse</h3>
+          <p><strong>Stop Runaway Loop Errors.</strong> Detect and halt infinite generation loops and mathematical collapse in milliseconds.</p>
+        </div>
+        <div class="card">
+          <h3>Compliance Blind Spots</h3>
+          <p><strong>Automate Audit Trails.</strong> Generate rigorous compliance-ready Markdown reports for safety and regulatory review.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="product" class="split">
+      <div>
+        <h2 class="section-title">BopTrace: The Enterprise Standard for AI Diagnostics.</h2>
+        <p class="section-copy">
+          BopTrace is a diagnostics SDK built for teams that need visibility into model behavior as it happens. It tracks alignment gradients,
+          structural friction, and probability collapse across token streams and hidden states, turning live inference into measurable telemetry.
+          With a native C++ backend, Python fallback, JSONL/stdout reporting, and model integration hooks, BopTrace gives researchers and
+          engineering teams a practical way to audit, debug, and monitor AI generation pipelines.
+        </p>
+        <div class="cards" style="grid-template-columns: repeat(2, minmax(0,1fr));">
+          <div class="card">⚡ Native C++ Core</div>
+          <div class="card">🛡️ Model Alignment Hook</div>
+          <div class="card">📈 Compliance Reporting</div>
+          <div class="card">🔌 Flexible Telemetry Sinks</div>
+        </div>
+      </div>
+      <div class="wave" aria-label="Abstract gradient wave diagram"></div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Trusted by Teams Building Mission-Critical AI.</h2>
+      <div class="logos">
+        <div class="logo">Data Platforms</div>
+        <div class="logo">Safety Teams</div>
+        <div class="logo">AI Infra</div>
+        <div class="logo">Compliance</div>
+      </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+      <div class="pricing-card">
+        <h3>Professional / Team</h3>
+        <div class="price">$99.95 / month</div>
+        <p>Full SDK access for active model teams.</p>
+        <ul class="list">
+          <li>Full SDK access</li>
+          <li>Real-time inference hooks</li>
+          <li>Custom enterprise sinks</li>
+        </ul>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://clearsolutions.lemonsqueezy.com/checkout/buy/1b8a897d-b4ec-43cd-a6d9-098d3accc3fa">Start Professional Trial</a>
+        </div>
+      </div>
+      <div class="pricing-card">
+        <h3>Enterprise</h3>
+        <div class="price">$499.95 / month</div>
+        <p>Compliance, onboarding, and white-glove support.</p>
+        <ul class="list">
+          <li>Everything in Professional</li>
+          <li>Advanced collapse prevention</li>
+          <li>White-labeled audit packages</li>
+          <li>Technical onboarding</li>
+        </ul>
+        <div class="cta-row">
+          <a class="btn btn-ghost" href="mailto:contact@epsilonframework.org?subject=BopTrace%20Enterprise%20Inquiry">Contact Sales</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer-cta">
+      <h2 class="section-title" style="margin-bottom:8px;">Don’t let your AI deployment fail silently.</h2>
+      <p class="section-copy" style="margin:0 auto 18px;">Integrate BopTrace today and gain mathematical certainty over your AI pipeline.</p>
+      <div class="cta-row" style="justify-content:center;">
+        <a class="btn btn-primary" href="#demo">Secure Your AI Pipeline (Free Community Demo Available)</a>
+      </div>
+    </div>
+
+    <section id="demo" class="demo-wrap">
+      <h2 class="section-title">Live Community Demo</h2>
+      <p class="section-copy">Run a capped generation stream and inspect alignment gradients, collapse risk, and a compliance-ready audit report.</p>
+      <div class="grid">
+        <div class="panel">
+          <label>Simulation Steps (Community Capped)</label>
+          <input id="steps" type="range" min="10" max="1000" value="100" step="10" />
+          <label>Latent State Volatility</label>
+          <input id="volatility" type="range" min="0.01" max="1.0" value="0.1" step="0.01" />
+          <button onclick="run()">Run Diagnostics Stream</button>
+        </div>
+        <div class="panel">
+          <h3>Session Summary</h3>
+          <pre id="summary"></pre>
+          <h3>Collapse Risk Meter</h3>
+          <pre id="meter"></pre>
+        </div>
+      </div>
+      <div class="grid" style="margin-top:20px;">
+        <div class="panel">
+          <h3>Gradient Plot Data</h3>
+          <pre id="plot"></pre>
+        </div>
+        <div class="panel">
+          <h3>Audit Report</h3>
+          <pre id="report"></pre>
+        </div>
+      </div>
+      <script>
+        async function run() {
+          const steps = document.getElementById('steps').value;
+          const volatility = document.getElementById('volatility').value;
+          const response = await fetch('/simulate', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({steps: Number(steps), volatility: Number(volatility)})
+          });
+          const data = await response.json();
+          document.getElementById('summary').textContent = data.summary;
+          document.getElementById('meter').textContent = data.meter;
+          document.getElementById('plot').textContent = JSON.stringify(data.plot_data, null, 2);
+          document.getElementById('report').textContent = data.report;
+        }
+        run();
+      </script>
+    </section>
+  </div>
+</body>
+</html>
+"""
+
 
 def run_simulation(steps: int, volatility: float):
     diagnostics = BopTraceDiagnostics()
@@ -50,72 +374,7 @@ def run_simulation(steps: int, volatility: float):
 
 @app.get("/", response_class=HTMLResponse)
 def index() -> HTMLResponse:
-    return HTMLResponse(
-        """
-        <!doctype html>
-        <html lang="en">
-        <head>
-          <meta charset="utf-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <title>BopTrace AI Diagnostics</title>
-          <style>
-            body { font-family: Arial, sans-serif; background:#0b1020; color:#e5e7eb; margin:0; padding:24px; }
-            .grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
-            .card { background:#111827; border:1px solid #263244; border-radius:16px; padding:20px; }
-            input { width:100%; }
-            button { padding:10px 14px; border:0; border-radius:10px; background:#4f46e5; color:white; font-weight:700; cursor:pointer; }
-            pre { white-space:pre-wrap; }
-          </style>
-        </head>
-        <body>
-          <h1>⚡ BopTrace AI Diagnostics</h1>
-          <p>Real-time AI diagnostics tracking token alignment gradients and preventing model probability collapse.</p>
-          <div class="grid">
-            <div class="card">
-              <label>Simulation Steps (Community Capped)</label>
-              <input id="steps" type="range" min="10" max="1000" value="100" step="10" />
-              <label>Latent State Volatility</label>
-              <input id="volatility" type="range" min="0.01" max="1.0" value="0.1" step="0.01" />
-              <button onclick="run()">Run Diagnostics Stream</button>
-            </div>
-            <div class="card">
-              <h3>Session Summary</h3>
-              <pre id="summary"></pre>
-              <h3>Collapse Risk Meter</h3>
-              <pre id="meter"></pre>
-            </div>
-          </div>
-          <div class="grid" style="margin-top:20px;">
-            <div class="card">
-              <h3>Gradient Plot Data</h3>
-              <pre id="plot"></pre>
-            </div>
-            <div class="card">
-              <h3>Audit Report</h3>
-              <pre id="report"></pre>
-            </div>
-          </div>
-          <script>
-            async function run() {
-              const steps = document.getElementById('steps').value;
-              const volatility = document.getElementById('volatility').value;
-              const response = await fetch('/simulate', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({steps: Number(steps), volatility: Number(volatility)})
-              });
-              const data = await response.json();
-              document.getElementById('summary').textContent = data.summary;
-              document.getElementById('meter').textContent = data.meter;
-              document.getElementById('plot').textContent = JSON.stringify(data.plot_data, null, 2);
-              document.getElementById('report').textContent = data.report;
-            }
-            run();
-          </script>
-        </body>
-        </html>
-        """
-    )
+    return HTMLResponse(INDEX_HTML)
 
 
 @app.post("/simulate")
