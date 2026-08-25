@@ -10,9 +10,9 @@ def test_run_simulation_returns_summary_and_report():
     assert collapse_events >= 0
 
 
-def test_index_includes_seo_landing_page_copy():
+def test_index_opens_on_demo_first():
     html = index().body.decode("utf-8")
-    assert "Stop AI Hallucinations &amp; Probability Collapse. Instantly." in html
-    assert "https://epsilonframework.org" in html
-    assert "#landing" in html
     assert "Live Community Demo" in html
+    assert "#landing" in html
+    assert "https://epsilonframework.org" in html
+    assert html.index("Live Community Demo") < html.index("Stop AI Hallucinations &amp; Probability Collapse. Instantly.")

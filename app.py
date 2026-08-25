@@ -168,44 +168,19 @@ INDEX_HTML = """
         </div>
       </div>
       <div class="nav-links">
-        <a href="#problems">Problems</a>
-        <a href="#product">Product</a>
-        <a href="#pricing">Pricing</a>
         <a href="#demo">Demo</a>
+        <a href="#landing">Landing Page</a>
+        <a href="https://epsilonframework.org" target="_blank" rel="noopener noreferrer">Core Framework</a>
       </div>
     </nav>
 
-    <section class="hero" id="landing">
-      <div>
-        <div class="eyebrow">Real-time AI model drift detection</div>
-        <h1>Stop AI Hallucinations &amp; Probability Collapse. Instantly.</h1>
-        <p class="lead">
-          Get real-time visibility into internal structural friction and alignment drift across your production LLM streams.
-          Transform unpredictable AI into reliable, auditable infrastructure.
-        </p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="mailto:contact@epsilonframework.org?subject=BopTrace%20Professional%20Inquiry">Secure Your AI Pipeline</a>
-          <a class="btn btn-ghost" href="#demo">View Live Demo</a>
-          <a class="btn btn-ghost" href="https://epsilonframework.org" target="_blank" rel="noopener noreferrer">Core Framework</a>
-        </div>
-        <div class="quote">“BopTrace caught gradient collapse in staging that standard logging completely missed.”</div>
-      </div>
-      <div class="hero-side">
-        <div class="stats">
-          <div class="stat"><span>LLM hallucinations</span><strong>Detected early</strong></div>
-          <div class="stat"><span>Probability collapse</span><strong>Monitored live</strong></div>
-          <div class="stat"><span>Audit trails</span><strong>Markdown-ready</strong></div>
-          <div class="stat"><span>Telemetry sinks</span><strong>JSONL / stdout</strong></div>
-        </div>
-      </div>
-    </section>
-
     <section id="demo" class="demo-wrap">
-      <h2 class="section-title">Live Community Demo</h2>
-      <p class="section-copy">Run a capped generation stream and inspect alignment gradients, collapse risk, and a compliance-ready audit report. For the full landing page, visit the Core Framework link above.</p>
+      <div class="eyebrow">Live Community Demo</div>
+      <h2 class="section-title">Run the BopTrace diagnostics stream first.</h2>
+      <p class="section-copy">Inspect alignment gradients, collapse risk, and a compliance-ready audit report in the community-capped Space. The full landing page remains linked below.</p>
       <div class="cta-row" style="margin-top: 0;">
-        <a class="btn btn-ghost" href="#landing">Back to Landing Page</a>
-        <a class="btn btn-ghost" href="https://epsilonframework.org" target="_blank" rel="noopener noreferrer">Open Landing Page</a>
+        <a class="btn btn-ghost" href="#landing">Open Landing Page</a>
+        <a class="btn btn-ghost" href="https://epsilonframework.org" target="_blank" rel="noopener noreferrer">Core Framework</a>
       </div>
       <div class="grid">
         <div class="panel">
@@ -249,6 +224,31 @@ INDEX_HTML = """
         }
         run();
       </script>
+    </section>
+
+    <section class="hero" id="landing">
+      <div>
+        <div class="eyebrow">Real-time AI model drift detection</div>
+        <h1>Stop AI Hallucinations &amp; Probability Collapse. Instantly.</h1>
+        <p class="lead">
+          Get real-time visibility into internal structural friction and alignment drift across your production LLM streams.
+          Transform unpredictable AI into reliable, auditable infrastructure.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="mailto:contact@epsilonframework.org?subject=BopTrace%20Professional%20Inquiry">Secure Your AI Pipeline</a>
+          <a class="btn btn-ghost" href="#demo">View Live Demo</a>
+          <a class="btn btn-ghost" href="https://epsilonframework.org" target="_blank" rel="noopener noreferrer">Core Framework</a>
+        </div>
+        <div class="quote">“BopTrace caught gradient collapse in staging that standard logging completely missed.”</div>
+      </div>
+      <div class="hero-side">
+        <div class="stats">
+          <div class="stat"><span>LLM hallucinations</span><strong>Detected early</strong></div>
+          <div class="stat"><span>Probability collapse</span><strong>Monitored live</strong></div>
+          <div class="stat"><span>Audit trails</span><strong>Markdown-ready</strong></div>
+          <div class="stat"><span>Telemetry sinks</span><strong>JSONL / stdout</strong></div>
+        </div>
+      </div>
     </section>
   </div>
 </body>
