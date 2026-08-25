@@ -14,3 +14,4 @@ def test_index_includes_seo_landing_page_copy():
     html = index().body.decode("utf-8")
     assert "Stop AI Hallucinations &amp; Probability Collapse. Instantly." in html
     assert "Production AI Systems Fail Silently." in html
+    assert "https://epsilonframework.org" in html
