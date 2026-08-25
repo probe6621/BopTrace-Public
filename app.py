@@ -200,97 +200,12 @@ INDEX_HTML = """
       </div>
     </section>
 
-    <section id="problems">
-      <h2 class="section-title">Production AI Systems Fail Silently.</h2>
-      <p class="section-copy">The keywords that matter are the pain points teams search for when their models start drifting, looping, or failing compliance checks.</p>
-      <div class="cards">
-        <div class="card">
-          <h3>Catastrophic Hallucination</h3>
-          <p><strong>Prevent User-Facing Drift.</strong> Stop unpredictable model outputs before they damage your brand reputation.</p>
-        </div>
-        <div class="card">
-          <h3>Probability Collapse</h3>
-          <p><strong>Stop Runaway Loop Errors.</strong> Detect and halt infinite generation loops and mathematical collapse in milliseconds.</p>
-        </div>
-        <div class="card">
-          <h3>Compliance Blind Spots</h3>
-          <p><strong>Automate Audit Trails.</strong> Generate rigorous compliance-ready Markdown reports for safety and regulatory review.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="product" class="split">
-      <div>
-        <h2 class="section-title">BopTrace: The Enterprise Standard for AI Diagnostics.</h2>
-        <p class="section-copy">
-          BopTrace is a diagnostics SDK built for teams that need visibility into model behavior as it happens. It tracks alignment gradients,
-          structural friction, and probability collapse across token streams and hidden states, turning live inference into measurable telemetry.
-          With a native C++ backend, Python fallback, JSONL/stdout reporting, and model integration hooks, BopTrace gives researchers and
-          engineering teams a practical way to audit, debug, and monitor AI generation pipelines.
-        </p>
-        <div class="cards" style="grid-template-columns: repeat(2, minmax(0,1fr));">
-          <div class="card">⚡ Native C++ Core</div>
-          <div class="card">🛡️ Model Alignment Hook</div>
-          <div class="card">📈 Compliance Reporting</div>
-          <div class="card">🔌 Flexible Telemetry Sinks</div>
-        </div>
-      </div>
-      <div class="wave" aria-label="Abstract gradient wave diagram"></div>
-    </section>
-
-    <section>
-      <h2 class="section-title">Trusted by Teams Building Mission-Critical AI.</h2>
-      <div class="logos">
-        <div class="logo">Data Platforms</div>
-        <div class="logo">Safety Teams</div>
-        <div class="logo">AI Infra</div>
-        <div class="logo">Compliance</div>
-      </div>
-    </section>
-
-    <section id="pricing" class="pricing">
-      <div class="pricing-card">
-        <h3>Professional / Team</h3>
-        <div class="price">$99.95 / month</div>
-        <p>Full SDK access for active model teams.</p>
-        <ul class="list">
-          <li>Full SDK access</li>
-          <li>Real-time inference hooks</li>
-          <li>Custom enterprise sinks</li>
-        </ul>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="https://clearsolutions.lemonsqueezy.com/checkout/buy/1b8a897d-b4ec-43cd-a6d9-098d3accc3fa">Purchase Professional</a>
-        </div>
-      </div>
-      <div class="pricing-card">
-        <h3>Enterprise</h3>
-        <div class="price">$499.95 / month</div>
-        <p>Compliance, onboarding, and white-glove support.</p>
-        <ul class="list">
-          <li>Everything in Professional</li>
-          <li>Advanced collapse prevention</li>
-          <li>White-labeled audit packages</li>
-          <li>Technical onboarding</li>
-        </ul>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="https://clearsolutions.lemonsqueezy.com/checkout/buy/ec3d57d0-bc52-41d0-a1ed-ac04434d0282">Purchase Enterprise</a>
-        </div>
-      </div>
-    </section>
-
-    <div class="footer-cta">
-      <h2 class="section-title" style="margin-bottom:8px;">Don’t let your AI deployment fail silently.</h2>
-      <p class="section-copy" style="margin:0 auto 18px;">Integrate BopTrace today and gain mathematical certainty over your AI pipeline.</p>
-      <div class="cta-row" style="justify-content:center;">
-        <a class="btn btn-primary" href="#demo">Secure Your AI Pipeline (Free Community Demo Available)</a>
-      </div>
-    </div>
-
     <section id="demo" class="demo-wrap">
       <h2 class="section-title">Live Community Demo</h2>
-      <p class="section-copy">Run a capped generation stream and inspect alignment gradients, collapse risk, and a compliance-ready audit report.</p>
+      <p class="section-copy">Run a capped generation stream and inspect alignment gradients, collapse risk, and a compliance-ready audit report. For the full landing page, visit the Core Framework link above.</p>
       <div class="cta-row" style="margin-top: 0;">
         <a class="btn btn-ghost" href="#landing">Back to Landing Page</a>
+        <a class="btn btn-ghost" href="https://epsilonframework.org" target="_blank" rel="noopener noreferrer">Open Landing Page</a>
       </div>
       <div class="grid">
         <div class="panel">
