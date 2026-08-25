@@ -168,18 +168,58 @@ INDEX_HTML = """
         </div>
       </div>
       <div class="nav-links">
+        <a href="#landing">Landing + Pricing</a>
         <a href="#demo">Demo</a>
-        <a href="https://epsilonframework.org" target="_blank" rel="noopener noreferrer">Landing Page + Pricing</a>
         <a href="https://epsilonframework.org" target="_blank" rel="noopener noreferrer">Core Framework</a>
       </div>
     </nav>
 
+    <section class="hero" id="landing">
+      <div>
+        <div class="eyebrow">Real-time AI model drift detection</div>
+        <h1>Stop AI Hallucinations &amp; Probability Collapse. Instantly.</h1>
+        <p class="lead">
+          Get real-time visibility into internal structural friction and alignment drift across your production LLM streams.
+          Transform unpredictable AI into reliable, auditable infrastructure.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://epsilonframework.org" target="_blank" rel="noopener noreferrer">Open Full Landing Page</a>
+          <a class="btn btn-ghost" href="#demo">View Live Demo</a>
+        </div>
+        <div class="quote">“BopTrace caught gradient collapse in staging that standard logging completely missed.”</div>
+      </div>
+      <div class="hero-side">
+        <div class="stats">
+          <div class="stat"><span>LLM hallucinations</span><strong>Detected early</strong></div>
+          <div class="stat"><span>Probability collapse</span><strong>Monitored live</strong></div>
+          <div class="stat"><span>Audit trails</span><strong>Markdown-ready</strong></div>
+          <div class="stat"><span>Telemetry sinks</span><strong>JSONL / stdout</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pricing" aria-labelledby="pricing-title">
+      <h2 id="pricing-title" class="section-title" style="grid-column: 1 / -1; margin-bottom: 0;">Pricing</h2>
+      <div class="pricing-card">
+        <div class="eyebrow">Professional</div>
+        <div class="price">$499.95</div>
+        <p class="section-copy">Production-grade diagnostics, telemetry, and audit reporting for teams shipping AI systems.</p>
+        <a class="btn btn-primary" href="https://clearsolutions.lemonsqueezy.com/checkout/buy/1b8a897d-b4ec-43cd-a6d9-098d3accc3fa" target="_blank" rel="noopener noreferrer">Buy Professional</a>
+      </div>
+      <div class="pricing-card">
+        <div class="eyebrow">Enterprise</div>
+        <div class="price">Custom</div>
+        <p class="section-copy">For larger deployments, private support, and tailored integration guidance.</p>
+        <a class="btn btn-ghost" href="https://clearsolutions.lemonsqueezy.com/checkout/buy/ec3d57d0-bc52-41d0-a1ed-ac04434d0282" target="_blank" rel="noopener noreferrer">Buy Enterprise</a>
+      </div>
+    </section>
+
     <section id="demo" class="demo-wrap">
       <div class="eyebrow">Live Community Demo</div>
       <h2 class="section-title">Run the BopTrace diagnostics stream first.</h2>
-      <p class="section-copy">Inspect alignment gradients, collapse risk, and a compliance-ready audit report in the community-capped Space. The full landing page with pricing is linked below.</p>
+      <p class="section-copy">Inspect alignment gradients, collapse risk, and a compliance-ready audit report in the community-capped Space. The full landing page with pricing is above.</p>
       <div class="cta-row" style="margin-top: 0;">
-        <a class="btn btn-ghost" href="https://epsilonframework.org" target="_blank" rel="noopener noreferrer">Open Landing Page + Pricing</a>
+        <a class="btn btn-ghost" href="#landing">Back to Landing + Pricing</a>
         <a class="btn btn-ghost" href="https://epsilonframework.org" target="_blank" rel="noopener noreferrer">Core Framework</a>
       </div>
       <div class="grid">
