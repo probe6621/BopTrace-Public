@@ -210,7 +210,7 @@ INDEX_HTML = """
         <div class="eyebrow">Enterprise</div>
         <div class="price">Custom</div>
         <p class="section-copy">For larger deployments, private support, and tailored integration guidance.</p>
-        <a class="btn btn-ghost" href="https://clearsolutions.lemonsqueezy.com/checkout/buy/ec3d57d0-bc52-41d0-a1ed-ac04434d0282" target="_blank" rel="noopener noreferrer">Buy Enterprise</a>
+        <a class="btn btn-ghost" href="https://clearsolutions.lemonsqueezy.com/checkout/buy/ec3d57d0-bc52-41d0-a1ed-ac04434d0282" target="_blank" rel="noopener noreferrer">Enterprise Checkout</a>
       </div>
     </section>
 
