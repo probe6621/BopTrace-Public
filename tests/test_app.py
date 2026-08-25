@@ -16,3 +16,4 @@ def test_index_includes_seo_landing_page_copy():
     assert "Production AI Systems Fail Silently." in html
     assert "https://epsilonframework.org" in html
     assert "ec3d57d0-bc52-41d0-a1ed-ac04434d0282" in html
+    assert "#landing" in html

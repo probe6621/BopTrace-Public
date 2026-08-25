@@ -175,7 +175,7 @@ INDEX_HTML = """
       </div>
     </nav>
 
-    <section class="hero">
+    <section class="hero" id="landing">
       <div>
         <div class="eyebrow">Real-time AI model drift detection</div>
         <h1>Stop AI Hallucinations &amp; Probability Collapse. Instantly.</h1>
@@ -289,6 +289,9 @@ INDEX_HTML = """
     <section id="demo" class="demo-wrap">
       <h2 class="section-title">Live Community Demo</h2>
       <p class="section-copy">Run a capped generation stream and inspect alignment gradients, collapse risk, and a compliance-ready audit report.</p>
+      <div class="cta-row" style="margin-top: 0;">
+        <a class="btn btn-ghost" href="#landing">Back to Landing Page</a>
+      </div>
       <div class="grid">
         <div class="panel">
           <label>Simulation Steps (Community Capped)</label>
