@@ -184,7 +184,7 @@ INDEX_HTML = """
           Transform unpredictable AI into reliable, auditable infrastructure.
         </p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="mailto:contact@epsilonframework.org?subject=BopTrace%20Professional%20Trial">Secure Your AI Pipeline</a>
+          <a class="btn btn-primary" href="mailto:contact@epsilonframework.org?subject=BopTrace%20Professional%20Inquiry">Secure Your AI Pipeline</a>
           <a class="btn btn-ghost" href="#demo">View Live Demo</a>
           <a class="btn btn-ghost" href="https://epsilonframework.org" target="_blank" rel="noopener noreferrer">Core Framework</a>
         </div>
@@ -259,7 +259,7 @@ INDEX_HTML = """
           <li>Custom enterprise sinks</li>
         </ul>
         <div class="cta-row">
-          <a class="btn btn-primary" href="https://clearsolutions.lemonsqueezy.com/checkout/buy/1b8a897d-b4ec-43cd-a6d9-098d3accc3fa">Start Professional Trial</a>
+          <a class="btn btn-primary" href="https://clearsolutions.lemonsqueezy.com/checkout/buy/1b8a897d-b4ec-43cd-a6d9-098d3accc3fa">Purchase Professional</a>
         </div>
       </div>
       <div class="pricing-card">
@@ -273,7 +273,7 @@ INDEX_HTML = """
           <li>Technical onboarding</li>
         </ul>
         <div class="cta-row">
-          <a class="btn btn-ghost" href="mailto:contact@epsilonframework.org?subject=BopTrace%20Enterprise%20Inquiry">Contact Sales</a>
+          <a class="btn btn-primary" href="https://clearsolutions.lemonsqueezy.com/checkout/buy/ec3d57d0-bc52-41d0-a1ed-ac04434d0282">Purchase Enterprise</a>
         </div>
       </div>
     </section>
