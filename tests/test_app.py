@@ -20,11 +20,11 @@ def test_index_opens_on_demo_first():
     assert second_visits == first_visits + 1
     assert "Live Community Demo" in second
     assert "Landing + Pricing" in second
+    assert "Landing+Pricing" in second
     assert "Free Demo Dowload" in second
     assert "Buy Professional" in second
     assert "Buy Enterprise" in second
     assert second.count("$499.95") >= 2
     assert "Open Public Git" in second
-    assert "https://epsilonframework.org" in second
     assert "https://github.com/probe6621/BopTrace-Public" in second
     assert "Stop AI Hallucinations &amp; Probability Collapse. Instantly." in second

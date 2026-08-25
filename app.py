@@ -226,7 +226,7 @@ INDEX_HTML = """
       <div class="cta-row" style="margin-top: 0;">
         <a class="btn btn-ghost" href="#landing">Back to Landing + Pricing</a>
         <a class="btn btn-ghost" href="https://github.com/probe6621/BopTrace-Public" target="_blank" rel="noopener noreferrer">Open Public Git</a>
-        <a class="btn btn-ghost" href="https://epsilonframework.org" target="_blank" rel="noopener noreferrer">Core Framework</a>
+        <a class="btn btn-ghost" href="#landing">Landing+Pricing</a>
       </div>
       <div class="grid">
         <div class="panel">
