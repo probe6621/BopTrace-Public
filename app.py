@@ -224,7 +224,7 @@ INDEX_HTML = """
       <h2 id="pricing-title" class="section-title" style="grid-column: 1 / -1; margin-bottom: 0;">Pricing</h2>
       <div class="pricing-card">
         <div class="eyebrow">Professional</div>
-        <div class="price">$499.95</div>
+        <div class="price">$99.95</div>
         <p class="section-copy">Production-grade diagnostics, telemetry, and audit reporting for teams shipping AI systems.</p>
         <a class="btn btn-primary" href="https://clearsolutions.lemonsqueezy.com/checkout/buy/1b8a897d-b4ec-43cd-a6d9-098d3accc3fa" target="_blank" rel="noopener noreferrer">Buy Professional</a>
       </div>
